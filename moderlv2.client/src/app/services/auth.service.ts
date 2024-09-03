@@ -42,6 +42,7 @@ export class AuthService {
           return true;
         } else {
           this.logout();
+          this.router.navigate(['/login'], { queryParams: { sessionExpired: true } });
           return false;
         }
       } catch (error) {

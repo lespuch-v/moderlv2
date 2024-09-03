@@ -24,10 +24,13 @@ namespace moderlv2.Server.Controllers
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null || string.IsNullOrEmpty(userIdClaim.Value))
             {
+                var claims = User.Claims.Select(c => $"{c.Type}: {c.Value}");
+                Console.WriteLine("Available Claims: " + string.Join(", ", claims));
                 throw new UnauthorizedAccessException("Invalid user ID claim in the token.");
             }
             return userIdClaim.Value;
         }
+
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JournalEntry>>> GetAllJournalEntries()

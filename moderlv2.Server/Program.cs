@@ -49,7 +49,7 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false,
         RequireExpirationTime = true,
         ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero // Optional: Reduce clock skew to zero if strict validation is needed
+        ClockSkew = TimeSpan.Zero
     };
     jwt.IncludeErrorDetails = true;
 });
