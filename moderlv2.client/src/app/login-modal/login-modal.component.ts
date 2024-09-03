@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginRequest } from '../models/auth.model';
 import { AuthService } from '../services/auth.service';
+import { ToasterService } from '../services/toast.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -18,12 +19,13 @@ export class LoginModalComponent {
 
   constructor(private authService: AuthService) { }
 
-  openModal() : void {
+  openModal(): void {
     this.isLoginModalOpen = true;
   }
 
   closeModal(): void {
     this.isLoginModalOpen = false;
+    ToasterService.showToast('success', 'hello world')
   }
 
   onSubmit(): void {

@@ -1,0 +1,40 @@
+<div class="fixed bottom-4 right-4 z-50 space-y-4" *ngIf="toastMessages.length > 0">
+    <div *ngFor="let toast of toastMessages" [ngClass]="{
+        'bg-blue-500 text-white': toast.type === 'info',
+        'bg-green-500 text-white': toast.type === 'success',
+        'bg-red-500 text-white': toast.type === 'error',
+        'bg-yellow-500 text-white': toast.type === 'warning'
+      }" class="flex items-center p-4 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out">
+        <div class="mr-3">
+            <ng-container [ngSwitch]="toast.type">
+                <svg *ngSwitchCase="'info'" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-200"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8 4a1 1 0 100-2 1 1 0 000 2zm1-8a1 1 0 00-2 0v4a1 1 0 002 0V6z"
+                        clip-rule="evenodd" />
+                </svg>
+                <svg *ngSwitchCase="'success'" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-200"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-10.707a1 1 0 00-1.414-1.414L9 9.586 7.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                <svg *ngSwitchCase="'error'" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-200"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M18 10A8 8 0 11-16 0 8 8 0 0116 0zm-4.293 6.293a1 1 0 001.414-1.414L10.414 10l4.293-4.293a1 1 0 00-1.414-1.414L10 8.586 5.707 4.293a1 1 0 00-1.414 1.414L8.586 10l-4.293 4.293a1 1 0 001.414 1.414L10 11.414l4.293 4.293z"
+                        clip-rule="evenodd" />
+                </svg>
+                <svg *ngSwitchCase="'warning'" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-200"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M8.257 3.099c.366-.627 1.243-.627 1.609 0l7.113 12.214c.349.599-.088 1.361-.804 1.361H2.948c-.716 0-1.153-.762-.804-1.361L8.257 3.1zM11 14a1 1 0 10-2 0 1 1 0 002 0zm-1-3a1 1 0 00-.993.883L9 12v2a1 1 0 001.993.117L11 14v-2a1 1 0 00-.883-.993L10 11z"
+                        clip-rule="evenodd" />
+                </svg>
+            </ng-container>
+        </div>
+        <div>
+            <span class="font-semibold">{{ toast.text }}</span>
+        </div>
+    </div>
+</div>
