@@ -1,0 +1,134 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+tmp/
+temp/
+.cache/
+coverage/
+
+# Angular
+.angular/
+.angular/cache/
+.angular/cli/
+**/src/environments/*.ts
+!src/environments/environment.prod.ts
+**/src/**/*.js
+**/src/**/*.js.map
+
+# Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.cache/
+*.log
+
+# ASP.NET
+bin/
+obj/
+**/bin/
+**/obj/
+*.dbmdl
+*.jfm
+*.ide
+*.sdf
+*.log
+
+# ASP.NET Core
+appsettings*.json
+launchSettings.json
+*.csproj.user
+*.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows image file caches
+*.wim
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Logs and Debug
+*.log
+*.tlog
+*.idb
+*.opendb
+
+# IDEs and Editors
+.idea/
+*.sln
+*.csproj
+*.user
+*.suo
+*.ds_store
+*.vs/
+.vscode/
+.idea/
+
+# Local history
+.history/
+
+
+# Ignore build output directories
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Ignore Visual Studio temporary files, build results, and
+# including in project files that should not be committed
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.cache
+*.log
+
+# Ignore NuGet Packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+
+# Ignore .NET Core related files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+project.nuget.cache
+*.dll
+*.exe
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.deps.json
+*.runtimeconfig.json
+*.xml
+
+# Ignore Publish output
+publish/
+out/
+
+# Ignore EF migrations
+migrations/

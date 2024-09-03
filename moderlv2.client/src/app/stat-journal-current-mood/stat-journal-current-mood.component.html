@@ -1,0 +1,13 @@
+<div class="stats shadow m-3 stat-journal-current-mood" style="width: 150px">
+  <div class="stat p-3 flex flex-col justify-between h-full">
+    <div *ngIf="!currentMood" class="stat-title text-xs font-medium mb-2">
+      Daily mood log.
+    </div>
+    <div class="stat-value text-lg font-bold break-words text-4xl text-center">
+      <div *ngIf="currentMood" class="stat-desc">Your mood</div>
+      <span class="text-4xl">{{
+          getMoodEmoji(currentMood) || "Not recorded"
+        }}</span>
+    </div>
+  </div>
+</div>

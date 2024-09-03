@@ -1,0 +1,23 @@
+<div class="tooltip tooltip-primary tooltip-top m-3" [attr.data-tip]="'Your current journal streak is ' + (currentStreak ? currentStreak : '0') + ' days.'">
+  <div class="stats shadow stat-journal-streak">
+    <div class="stat">
+      <div class="stat-title">Current Streak</div>
+      <div class="stat-value flex justify-center align-middle items-center text-center text-secondary">
+        <span class="mx-3">
+        {{ currentStreak ? currentStreak : 0 }}
+        </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="inline-block h-8 w-8 stroke-current">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

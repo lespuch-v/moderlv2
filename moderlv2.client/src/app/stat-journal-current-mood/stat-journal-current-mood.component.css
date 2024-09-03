@@ -1,0 +1,10 @@
+.stat-journal-current-mood{
+  max-width: 150px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.fixed-width {
+  width: 150px;
+}

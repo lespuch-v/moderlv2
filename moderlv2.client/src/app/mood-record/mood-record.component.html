@@ -1,0 +1,126 @@
+<p>mood-record works!</p>
+<div class="m-5 p-3 main-input-container lex justify-center align-middle items-center flex-col">
+  <main class="m-5 p-3 main-input-container">
+    <div class="flex justify-center align-middle items-center flex-col">
+      <stat-journal-counter [totalEntries]="journalWordCount"></stat-journal-counter>
+      <stat-journal-current-mood [currentMood]="selectedMood"></stat-journal-current-mood>
+      <stat-journal-current-streak></stat-journal-current-streak>
+      <stat-journal-mood-forecast></stat-journal-mood-forecast>
+    </div>
+    <form (ngSubmit)="handleSubmit()">
+      <div class="main-inner-container">
+        <div class="flex flex-col">
+          <div style="display: block">
+            <div style="display: block">
+              <canvas baseChart [type]="lineChartType" [data]="lineChartData" [options]="lineChartOptions">
+              </canvas>
+            </div>
+          </div>
+          <textarea class="textarea textarea-primary" id="journalEntryTextArea" name="journalEntryTextArea" rows="4"
+                    cols="52" [(ngModel)]="journalMoodText" [placeholder]="textAreaMessage"></textarea>
+          <div *ngIf="showMoodErrorMsg" class="text-sm text-gray-100 m-1 flex items-center m-1 badge badge-accent">
+            Select your mood.
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6 mx-1">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <section class="flex justify-center">
+            <div class="flex flex-wrap">
+              <div *ngFor="let mood of moodOptions" class="m-1">
+                <div class="tooltip tooltip-primary" [attr.data-tip]="mood.tooltip">
+                  <label class="btn btn-circle swap swap-rotate" [ngClass]="
+                      selectedMood === MoodEnum[mood.key] ? 'selected-mood' : ''
+                    ">
+                    <input type="checkbox" [checked]="selectedMood === MoodEnum[mood.key]"
+                           (change)="emojiSelection(mood.key)" />
+                    <div class="swap-off fill-current text-3xl">
+                      {{ mood.emoji }}
+                    </div>
+                    <div class="swap-on fill-current text-3xl">
+                      {{ mood.swapEmoji }}
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <div *ngFor="let data of allCurrentJournalEntries" class="main-inner-container input-container-data mb-4">
+    <div class="bg-yellow-100 p-6 relative w-full max-w-4xl mx-auto rounded-lg shadow-md flex items-center"> <!-- Flex applied here -->
+      <button (click)="deleteJournalEntry(data.id)"
+              class="btn btn-circle btn-outline btn-error btn-xs absolute top-2 right-2 m-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="w-3 h-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="flex-grow"> <!-- Added this wrapper -->
+        <div class="flex-grow overflow-hidden mb-4">
+          <div *ngIf="editingEntryId !== data.id" class="overflow-y-auto mb-2">
+            <p class="text-lg">{{ data.description }}</p>
+          </div>
+          <div *ngIf="editingEntryId === data.id">
+        <textarea class="textarea textarea-primary w-full" id="journalEntryTextAreaEdit"
+                  name="journalEntryTextAreaEdit" rows="3" [(ngModel)]="data.description"
+                  [placeholder]="textAreaMessage"></textarea>
+          </div>
+        </div>
+        <div class="text-sm text-gray-600 mb-4">
+          {{ data.createdAt | date : "medium" }}
+        </div>
+      </div>
+      <div class="flex items-center justify-end text-6xl">
+        <ng-container *ngIf="editingEntryId !== data.id">
+          <div class="emoji-container">
+            <div class="emoji">
+              {{ getEmojiEnum(data.moodRating) }}
+            </div>
+            <span class="stat-desc">{{ MoodEnum[data.moodRating] }}</span>
+          </div>
+
+        </ng-container>
+        <ng-container *ngIf="editingEntryId === data.id">
+          <div class="flex flex-row" *ngFor="let mood of moodOptions">
+            <label class="btn btn-circle swap swap-rotate btn-sm" [ngClass]="
+            editingMood === MoodEnum[mood.key] ? 'selected-mood' : ''
+          ">
+              <input type="checkbox" [checked]="editingMood === MoodEnum[mood.key]"
+                     (change)="emojiSelectionEdit(mood.key)" />
+              <div class="swap-off fill-current text-2xl">
+                {{ mood.emoji }}
+              </div>
+              <div class="swap-on fill-current text-2xl">
+                {{ mood.swapEmoji }}
+              </div>
+            </label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="ml-4 flex items-center mt-14">
+        <button
+          *ngIf="editingEntryId !== data.id"
+          (click)="editJournalEntry(data.id)"
+          class="btn btn-primary btn-sm edit-btn">
+          Edit
+        </button>
+
+        <ng-container *ngIf="editingEntryId === data.id">
+          <button class="btn btn-outline btn-success btn-sm mr-2 save-color" (click)="saveJournalEntry(data)">
+            Save
+          </button>
+          <button class="btn btn-outline btn-error btn-sm" (click)="cancelEdit()">
+            Cancel
+          </button>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</div>

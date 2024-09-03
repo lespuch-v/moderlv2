@@ -1,0 +1,6 @@
+@moderlv2.Server_HostAddress = http://localhost:5237
+
+GET {{moderlv2.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
