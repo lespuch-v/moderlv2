@@ -1,60 +1,94 @@
-<div class="hero min-h-screen">
-    <div class="hero-content text-center">
-        <div class="max-w-md">
-            <h1 class="text-5xl font-bold">Hello there</h1>
-            <h2 class="text-3xl">Welcome to Mooder!</h2>
-            <p class="py-6">
-                <strong>Mooder</strong> is designed to help you understand your emotions, one mood at a time.
-                Whether you're feeling great or just need a moment to reflect, Mooder offers a simple and intuitive way
-                to
-                track your feelings and gain insights over time.
-            </p>
+<main class="main-home-container">
+    <div class="hero min-h-screen">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">Hello there</h1>
+                <h2 class="text-3xl">Welcome to Mooder!</h2>
+                <p class="py-6">
+                    <strong>Mooder</strong> is designed to help you understand your emotions, one mood at a time.
+                    Whether you're feeling great or just need a moment to reflect, Mooder offers a simple and intuitive
+                    way
+                    to
+                    track your feelings and gain insights over time.
+                </p>
+            </div>
+        </div>
+
+        <div class="mooder-container">
+            <h1 class="text-8xl font-bold text-red-400 mood-text">Mooder!</h1>
         </div>
     </div>
 
-    <div class="mooder-container">
-        <h1 class="text-8xl font-bold text-red-400 mood-text">Mooder!</h1>
-    </div>
-</div>
+    <!-- New wrapper for cards -->
+    <div class="card-container">
+        <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+            <figure>
+                <img [src]="chartImage" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Personalized Journal</h2>
+                <p>Keep a private log of your emotional journey and reflect whenever you need to.</p>
+                <div class="card-actions justify-end">
+                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
+                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
 
-<!-- New wrapper for cards -->
-<div class="card-container">
-    <div class="card bg-base-100 w-72 shadow-xl m-2">
-        <figure>
-            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+        <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+            <figure>
+                <img [src]="marketingImage" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Gain Insights!</h2>
+                <p>Visualize patterns to understand what influences your emotions.</p>
+                <div class="card-actions justify-end">
+
+                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
+                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+            <figure>
+                <img [src]="infoVizImage" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">Quick & Easy!</h2>
+                <p>Recording your mood takes just a few seconds.</p>
+                <div class="card-actions justify-end">
+                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
+                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card bg-base-100 w-72 shadow-xl m-2">
-        <figure>
-            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+    <div class="flex flex-col justify-center justify-items-center justify-self-center btn-container">
+        <img [src]="coffeeImage" alt="coffee">
+        <div class="card bg-base-100 w-96 shadow-xl"
+            style="margin-bottom: 100px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+            <div class="card-body items-center text-center">
+                <h2 class="card-title">Ready to start journal?</h2>
+                <div class="card-actions">
+                    <button class="btn btn-primary">Journal now!</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card bg-base-100 w-72 shadow-xl m-2">
-        <figure>
-            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-        </div>
-    </div>
-</div>
+</main>

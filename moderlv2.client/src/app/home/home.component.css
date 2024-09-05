@@ -60,6 +60,25 @@
     margin: 10px;
 }
 
+.card-edits {
+    height: 430px;
+}
+
+.main-home-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .mooder-container {
