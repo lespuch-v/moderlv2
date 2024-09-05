@@ -1,0 +1,74 @@
+.mooder-container {
+    width: 800px;
+    height: 700px;
+    background-color: yellow;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    background-image: url('../../assets/images/cats.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mood-text {
+    text-shadow: 3px 3px 10px rgba(138, 138, 138, 0.5);
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    background-color: #ffffffd8;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.mooder-container {
+    transform: translateY(130px);
+    bottom: auto;
+}
+
+.min-h-screen {
+    min-height: 85vh;
+}
+
+.max-w-md {
+    transform: translateY(-330px);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Flexbox to center cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Ensure cards don't stretch too wide */
+.card {
+    max-width: 300px;
+    margin: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mooder-container {
+        width: 100%;
+        height: 200px;
+    }
+
+    /* Cards will stack on smaller screens */
+    .card-container {
+        flex-direction: column;
+    }
+}

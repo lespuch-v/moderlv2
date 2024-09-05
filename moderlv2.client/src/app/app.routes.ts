@@ -7,10 +7,10 @@ import { UserStatsComponent } from './user-stats/user-stats.component';
 import { AuthGuard } from './services/authGuards';
 
 export const routes: Routes = [
-  { path: '', component: AboutComponent },
+  { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'stats', component: UserStatsComponent, canActivate: [AuthGuard] },
-  { path: 'mood',  component: MoodRecordComponent, canActivate: [AuthGuard]},
+  { path: 'mood', component: MoodRecordComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];

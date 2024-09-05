@@ -18,7 +18,6 @@ import { StatJournalMoodForecastComponent } from './stat-journal-mood-forecast/s
 import { StatJournalWordCountComponent } from './stat-journal-word-count/stat-journal-word-count.component';
 import { StatsComponent } from './stats/stats.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
-import { ToasterComponent } from './toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { ToasterComponent } from './toaster/toaster.component';
     HomeComponent,
     StatsComponent,
     UserStatsComponent,
-    ToasterComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
