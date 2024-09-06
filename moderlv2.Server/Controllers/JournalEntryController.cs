@@ -159,7 +159,8 @@ namespace moderlv2.Server.Controllers
         [HttpGet("journalEntry-count")]
         public async Task<ActionResult<int>> GetJournalEntryCount()
         {
-            int journalEntryCount = await _journalService.JournalEntryCount();
+            var userId = GetUserIdFromToken();
+            int journalEntryCount = await _journalService.JournalEntryCount(userId);
             return Ok(journalEntryCount);
         }
     }

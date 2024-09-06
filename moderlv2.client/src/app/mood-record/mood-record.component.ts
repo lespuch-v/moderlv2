@@ -121,19 +121,15 @@ export class MoodRecordComponent implements OnInit {
 
   getAllJournalEntries() {
     const token = localStorage.getItem('token');
-    console.log('Token before making request:', token);  // Log the token
-    console.log('Fetching journal entries...');
 
     this.moodService.getJournalEntries().subscribe({
       next: (result) => {
-        console.log('Journal entries fetched successfully:', result);
         this.allCurrentJournalEntries = [...result].reverse();
         this.getJournalEntryCount();
         this.updateChartData(result);
       },
       error: (error) => {
         console.error('Error fetching journal entries:', error);
-        console.error('Error details:', error.error);
         if (error.status === 401) {
           console.log('Unauthorized, redirecting to login');
           this.authService.logout();
@@ -172,6 +168,7 @@ export class MoodRecordComponent implements OnInit {
       console.error('Attempted to edit entry with undefined id');
     }
   }
+
   handleSubmit(): void {
     if (!this.journalMoodText || this.selectedMood === undefined) {
       this.showMoodErrorMsg = true;
@@ -179,7 +176,7 @@ export class MoodRecordComponent implements OnInit {
     }
 
     const newJournalEntry: CreateJournalEntry = {
-      userId: 'my-user-test', // TODO: this will go away when login is implemented
+      userId: 'my-user-test',
       description: this.journalMoodText,
       moodRating: this.selectedMood as unknown as Mood,
       date: new Date().toISOString(),
@@ -211,14 +208,10 @@ export class MoodRecordComponent implements OnInit {
     if (entry && entry.id !== undefined) {
       const updatedEntry = { ...entry, moodRating: this.editingMood as unknown as Mood };
       this.moodService.updateJournalEntry(updatedEntry).subscribe({
-        next: (updatedEntry) => {
-          if (updatedEntry && updatedEntry.id !== undefined) {
-            const index = this.allCurrentJournalEntries.findIndex(e => e.id === updatedEntry.id);
-            if (index !== -1) {
-              this.allCurrentJournalEntries[index] = updatedEntry;
-            }
-          } else {
-            console.error('Received invalid data from server:', updatedEntry);
+        next: () => {
+          const index = this.allCurrentJournalEntries.findIndex(e => e.id === entry.id);
+          if (index !== -1) {
+            this.allCurrentJournalEntries[index] = { ...entry, moodRating: this.editingMood as unknown as Mood };
           }
           this.editingEntryId = null;
           this.editingMood = undefined;

@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { AuthRequest, RegisterRequest, RegisterResponse } from '../models/auth.model';
+import { ToasterService } from '../services/toast.service';
 
 @Component({
   selector: 'app-registration-modal',
@@ -36,6 +37,8 @@ export class RegistrationModalComponent {
     this.authService.registerUser(userData).subscribe({
       next: (response) => {
         console.log('Token received:', response.token);
+        ToasterService.showToast('success', 'Registration success!')
+        ToasterService.showToast('info', 'Try log in.', 5000 )
       },
       error: (error) => {
         console.error('Registration failed:', error);

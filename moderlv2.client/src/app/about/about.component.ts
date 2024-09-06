@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  handleGetStarted() {
+    // if user is logged in - redirect to the main mood page
+    // if user is not logged in - show modal for the registrations.
+  }
 }

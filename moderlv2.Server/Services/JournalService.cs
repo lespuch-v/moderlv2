@@ -58,9 +58,9 @@ namespace moderlv2.Server.Services
             return words.Count;
         }
 
-        public async Task<int> JournalEntryCount()
+        public async Task<int> JournalEntryCount(string userId)
         {
-            var allEntries = await GetAllJournalEntriesAsync();
+            var allEntries = await GetAllJournalEntriesByUserAsync(userId);
             return allEntries.Count();
         }
 
