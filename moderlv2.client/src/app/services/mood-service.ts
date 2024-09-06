@@ -30,7 +30,10 @@ export class MoodServiceService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
   }
 
   getJournalEntries(): Observable<JournalEntry[]> {
@@ -46,11 +49,11 @@ export class MoodServiceService {
   }
 
   updateJournalEntry(entry: JournalEntry): Observable<JournalEntry> {
-    return this.httpWithAuth<JournalEntry>('PUT', `${this.apiUrl}/JournalEntry/${entry.id}`)
+    return this.httpWithAuth<JournalEntry>('PUT', `${this.apiUrl}/JournalEntry/${entry.id}`, JSON.stringify(entry));
   }
 
   getWordCount(): Observable<number> {
-    return this.httpWithAuth<number>('GET',`${this.apiUrl}/JournalEntry/word-count`);
+    return this.httpWithAuth<number>('GET', `${this.apiUrl}/JournalEntry/word-count`);
   }
 
   getJournalEntryCount(): Observable<number> {

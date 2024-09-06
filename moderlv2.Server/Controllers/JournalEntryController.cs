@@ -131,7 +131,8 @@ namespace moderlv2.Server.Controllers
 
             await _journalService.UpdateJournalEntryAsync(journalEntry);
 
-            return NoContent();
+            // Return the updated journal entry
+            return Ok(journalEntry);
         }
 
         [HttpDelete("{id}")]

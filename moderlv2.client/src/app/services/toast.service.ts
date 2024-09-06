@@ -15,14 +15,14 @@ export class ToasterService {
 
     constructor() { }
 
-    static showToast(type: 'info' | 'success' | 'error' | 'warning', text: string) {
+    static showToast(type: 'info' | 'success' | 'error' | 'warning', text: string, timeMillisecond = 3000) {
         const currentMessages = ToasterService.toastMessagesSubject.value;
         const updatedMessages = [...currentMessages, { type, text }];
         ToasterService.toastMessagesSubject.next(updatedMessages);
 
         setTimeout(() => {
             ToasterService.removeToast();
-        }, 3000);
+        }, timeMillisecond);
     }
 
     private static removeToast() {
