@@ -6,39 +6,41 @@ namespace moderlv2.Server.Services
 {
     public class JournalService
     {
-        private readonly IJournalEntryRepository _repository;
+        private readonly IJournalEntryRepository _JournalRepository;
+        private readonly IUserService _userService;
 
-        public JournalService(IJournalEntryRepository repository)
+        public JournalService(IJournalEntryRepository repository, IUserService userService)
         {
-            _repository = repository;
+            _JournalRepository = repository;
+            _userService = userService;
         }
 
         public async Task<IEnumerable<JournalEntry>> GetAllJournalEntriesAsync()
         {
-            return await _repository.GetAllAsync();
+            return await _JournalRepository.GetAllAsync();
         }
 
         public async Task<JournalEntry> GetJournalEntryByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _JournalRepository.GetByIdAsync(id);
         }
 
         public async Task<JournalEntry> CreateJournalEntryAsync(JournalEntry journalEntry)
         {
             journalEntry.CreatedAt = DateTime.UtcNow;
             journalEntry.UpdatedAt = DateTime.UtcNow;
-            return await _repository.CreateAsync(journalEntry);
+            return await _JournalRepository.CreateAsync(journalEntry);
         }
 
         public async Task UpdateJournalEntryAsync(JournalEntry journalEntry)
         {
             journalEntry.UpdatedAt = DateTime.UtcNow;
-            await _repository.UpdateAsync(journalEntry);
+            await _JournalRepository.UpdateAsync(journalEntry);
         }
 
         public async Task DeleteJournalEntryAsync(int id)
         {
-            await _repository.DeleteAsync(id);
+            await _JournalRepository.DeleteAsync(id);
         }
 
         public async Task<int> GetWordCountAsync()
@@ -66,12 +68,12 @@ namespace moderlv2.Server.Services
 
         public async Task<IEnumerable<JournalEntry>> GetAllJournalEntriesByUserAsync(string userId)
         {
-            return await _repository.GetAllByUserIdAsync(userId);
+            return await _JournalRepository.GetAllByUserIdAsync(userId);
         }
 
         public async Task<JournalEntry> GetJournalEntryByIdAndUserAsync(int id, string userId)
         {
-            return await _repository.GetByIdAndUserIdAsync(id, userId);
+            return await _JournalRepository.GetByIdAndUserIdAsync(id, userId);
         }
     }
 }

@@ -30,6 +30,10 @@ export class MoodServiceService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
+    console.log("Token being sent:", token);
+    if (!token) {
+      throw new Error("Token not found");
+    }
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
@@ -58,5 +62,9 @@ export class MoodServiceService {
 
   getJournalEntryCount(): Observable<number> {
     return this.httpWithAuth<number>('GET', `${this.apiUrl}/JournalEntry/journalEntry-count`)
+  }
+
+  getUserName(): Observable<any> {
+    return this.httpWithAuth<string>('GET', `${this.apiUrl}/User/get-username`);
   }
 }

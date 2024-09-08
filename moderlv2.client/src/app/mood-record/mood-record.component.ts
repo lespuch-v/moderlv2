@@ -126,7 +126,8 @@ export class MoodRecordComponent implements OnInit {
       next: (result) => {
         this.allCurrentJournalEntries = [...result].reverse();
         this.getJournalEntryCount();
-        this.updateChartData(result);
+        console.log(result);
+        this.getUserNameToDisplay();
       },
       error: (error) => {
         console.error('Error fetching journal entries:', error);
@@ -245,5 +246,16 @@ export class MoodRecordComponent implements OnInit {
     this.moodService.getJournalEntryCount().subscribe(result => {
       this.journalWordCount = result
     })
+  }
+
+  getUserNameToDisplay() {
+    this.moodService.getUserName().subscribe({
+      next: (result) => {
+        console.log("Username:", result);
+      },
+      error: (error) => {
+        console.error('Error fetching username:', error);
+      }
+    });
   }
 }

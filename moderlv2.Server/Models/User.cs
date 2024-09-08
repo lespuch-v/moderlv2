@@ -16,5 +16,10 @@ namespace moderlv2.Server.Models
 
         [Required]
         public string PasswordSalt { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [MinLength(3)]
+        public string UserName { get; set; }
     }
 }

@@ -6,5 +6,6 @@ namespace moderlv2.Server.Services
     {
         Task<User> RegisterAsync(string email, string password);
         Task<User> AuthenticateAsync(string email, string password);
+        Task<User> GetUserByIdAsync(string userId);
     }
 }

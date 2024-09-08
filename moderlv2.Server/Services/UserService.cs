@@ -26,10 +26,10 @@ namespace moderlv2.Server.Services
 
             var user = new User
             {
-                Id = Guid.NewGuid().ToString(),  // Generate a new GUID for the Id
+                Id = Guid.NewGuid().ToString(),
                 Email = email,
                 PasswordHash = passwordHash,
-                PasswordSalt = salt // Store the salt
+                PasswordSalt = salt
             };
 
             _context.Users.Add(user);
@@ -85,6 +85,12 @@ namespace moderlv2.Server.Services
         {
             var hash = HashPassword(password, storedSalt);
             return hash == storedHash;
+        }
+
+        public async Task<User> GetUserByIdAsync(string userId)
+        
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
         }
     }
 
