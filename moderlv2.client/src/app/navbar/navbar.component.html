@@ -37,11 +37,13 @@
       (click)="registrationModal.openRegistrationModel()">Sign Up</button>
     <button *ngIf="!authService.isLoggedIn()" class="btn btn-primary mr-4"
       (click)="loginModal.openModal()">Login</button>
-    <button (click)="updateUserNameModal.openUpdateNameModal()" class="btn bg-yellow-100 m-3">{{ userName ? userName : 'Guest' }}</button>
+    <button (click)="updateUserNameModal.openUpdateNameModal()" *ngIf="authService.isLoggedIn()"
+      class="btn bg-yellow-100 m-3">{{ userName ? userName : 'Guest' }}</button>
     <button (click)="authService.logout()" *ngIf="authService.isLoggedIn()" class="btn btn-accent">Logout</button>
   </div>
 </div>
 
 <app-login-modal #loginModal></app-login-modal>
 <app-registration-modal #registrationModal></app-registration-modal>
-<app-update-username-modal (userNameUpdated)="onUserNameUpdated($event)" #updateUserNameModal></app-update-username-modal>
+<app-update-username-modal (userNameUpdated)="onUserNameUpdated($event)"
+  #updateUserNameModal></app-update-username-modal>

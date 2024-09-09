@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class UserStatsComponent {
 
+  workInProgressImage: string = './assets/images/workinprogress.webp';
+
 }

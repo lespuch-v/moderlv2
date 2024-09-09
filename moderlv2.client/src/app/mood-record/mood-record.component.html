@@ -7,7 +7,8 @@
       <stat-journal-mood-forecast></stat-journal-mood-forecast>
     </div>
     <form (ngSubmit)="handleSubmit()">
-      <h1 *ngIf="allCurrentJournalEntries.length === 0" class="text-1xl">It’s a fresh start! Ready to record your first mood?</h1>
+      <h1 *ngIf="allCurrentJournalEntries.length === 0" class="text-1xl">It’s a fresh start! Ready to record your first
+        mood?</h1>
       <div class="main-inner-container">
         <div class="flex flex-col">
           <div style="display: block">
@@ -17,13 +18,13 @@
             </div>
           </div>
           <textarea class="textarea textarea-primary" id="journalEntryTextArea" name="journalEntryTextArea" rows="4"
-                    cols="52" [(ngModel)]="journalMoodText" [placeholder]="textAreaMessage"></textarea>
+            cols="52" [(ngModel)]="journalMoodText" [placeholder]="textAreaMessage"></textarea>
           <div *ngIf="showMoodErrorMsg" class="text-sm text-gray-100 m-1 flex items-center m-1 badge badge-accent">
             Select your mood.
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="size-6 mx-1">
+              stroke="currentColor" class="size-6 mx-1">
               <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
             </svg>
           </div>
           <section class="flex justify-center">
@@ -34,7 +35,7 @@
                       selectedMood === MoodEnum[mood.key] ? 'selected-mood' : ''
                     ">
                     <input type="checkbox" [checked]="selectedMood === MoodEnum[mood.key]"
-                           (change)="emojiSelection(mood.key)" />
+                      (change)="emojiSelection(mood.key)" />
                     <div class="swap-off fill-current text-3xl">
                       {{ mood.emoji }}
                     </div>
@@ -53,11 +54,12 @@
   </main>
 
   <div *ngFor="let data of allCurrentJournalEntries" class="main-inner-container input-container-data mb-4">
-    <div class="bg-yellow-100 p-6 relative w-full max-w-4xl mx-auto rounded-lg shadow-md flex items-center"> <!-- Flex applied here -->
+    <div class="bg-yellow-100 p-6 relative w-full max-w-4xl mx-auto rounded-lg shadow-md flex items-center">
+      <!-- Flex applied here -->
       <button (click)="deleteJournalEntry(data.id)"
-              class="btn btn-circle btn-outline btn-error btn-xs absolute top-2 right-2 m-2">
+        class="btn btn-circle btn-outline btn-error btn-xs absolute top-2 right-2 m-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-             class="w-3 h-3">
+          class="w-3 h-3">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
@@ -67,9 +69,9 @@
             <p class="text-lg">{{ data.description }}</p>
           </div>
           <div *ngIf="editingEntryId === data.id">
-        <textarea class="textarea textarea-primary w-full" id="journalEntryTextAreaEdit"
-                  name="journalEntryTextAreaEdit" rows="3" [(ngModel)]="data.description"
-                  [placeholder]="textAreaMessage"></textarea>
+            <textarea class="textarea textarea-primary w-full" id="journalEntryTextAreaEdit"
+              name="journalEntryTextAreaEdit" rows="3" [(ngModel)]="data.description"
+              [placeholder]="textAreaMessage"></textarea>
           </div>
         </div>
         <div class="text-sm text-gray-600 mb-4">
@@ -92,7 +94,7 @@
             editingMood === MoodEnum[mood.key] ? 'selected-mood' : ''
           ">
               <input type="checkbox" [checked]="editingMood === MoodEnum[mood.key]"
-                     (change)="emojiSelectionEdit(mood.key)" />
+                (change)="emojiSelectionEdit(mood.key)" />
               <div class="swap-off fill-current text-2xl">
                 {{ mood.emoji }}
               </div>
@@ -104,9 +106,7 @@
         </ng-container>
       </div>
       <div class="ml-4 flex items-center mt-14">
-        <button
-          *ngIf="editingEntryId !== data.id"
-          (click)="editJournalEntry(data.id)"
+        <button *ngIf="editingEntryId !== data.id" (click)="editJournalEntry(data.id)"
           class="btn btn-primary btn-sm edit-btn">
           Edit
         </button>

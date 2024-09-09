@@ -86,6 +86,7 @@ export class MoodRecordComponent implements OnInit {
 
   lineChartOptions: ChartConfiguration['options'] = {
     responsive: true,
+    aspectRatio: 2,
     scales: {
       y: {
         beginAtZero: true,
@@ -95,6 +96,11 @@ export class MoodRecordComponent implements OnInit {
           callback: (value) => {
             return Object.values(this.moodMap).find(m => m.value === value)?.label || '';
           }
+        }
+      },
+      x: {
+        grid: {
+          display: false
         }
       }
     },
@@ -110,6 +116,7 @@ export class MoodRecordComponent implements OnInit {
       }
     }
   };
+
   lineChartType: ChartType = 'line';
 
   constructor(private moodService: MoodServiceService, private router: Router, private authService: AuthService) { }
@@ -126,6 +133,7 @@ export class MoodRecordComponent implements OnInit {
       next: (result) => {
         this.allCurrentJournalEntries = [...result].reverse();
         this.getJournalEntryCount();
+        this.updateChartData(this.allCurrentJournalEntries)
       },
       error: (error) => {
         console.error('Error fetching journal entries:', error);
@@ -245,6 +253,4 @@ export class MoodRecordComponent implements OnInit {
       this.journalWordCount = result
     })
   }
-
-
 }
