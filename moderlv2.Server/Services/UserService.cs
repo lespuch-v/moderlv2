@@ -14,7 +14,7 @@ namespace moderlv2.Server.Services
             _context = context;
         }
 
-        public async Task<User> RegisterAsync(string email, string password)
+        public async Task<User> RegisterAsync(string email, string password, string username)
         {
             if (await _context.Users.AnyAsync(u => u.Email == email))
             {
@@ -29,7 +29,8 @@ namespace moderlv2.Server.Services
                 Id = Guid.NewGuid().ToString(),
                 Email = email,
                 PasswordHash = passwordHash,
-                PasswordSalt = salt
+                PasswordSalt = salt,
+                UserName = username
             };
 
             _context.Users.Add(user);
@@ -91,6 +92,12 @@ namespace moderlv2.Server.Services
         
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
+        public async Task UpdateUserAsync(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 

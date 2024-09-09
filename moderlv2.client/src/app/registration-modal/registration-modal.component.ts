@@ -2,8 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { AuthRequest, RegisterRequest, RegisterResponse } from '../models/auth.model';
 import { ToasterService } from '../services/toast.service';
+import { RegisterRequest } from '../models/auth.model';
 
 @Component({
   selector: 'app-registration-modal',
@@ -29,16 +29,16 @@ export class RegistrationModalComponent {
   onRegister() {
     console.log('Registration submitted...');
 
-    const userData: AuthRequest = {
+    const userData: RegisterRequest  = {
       email: this.userEmail,
       password: this.userPassword,
+      username: this.userName
     };
 
     this.authService.registerUser(userData).subscribe({
-      next: (response) => {
-        console.log('Token received:', response.token);
+      next: () => {
         ToasterService.showToast('success', 'Registration success!')
-        ToasterService.showToast('info', 'Try log in.', 5000 )
+        ToasterService.showToast('info', 'Try log in.', 5000)
       },
       error: (error) => {
         console.error('Registration failed:', error);

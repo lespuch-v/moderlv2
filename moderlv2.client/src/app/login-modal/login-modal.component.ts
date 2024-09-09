@@ -30,8 +30,6 @@ export class LoginModalComponent {
   }
 
   onSubmit(): void {
-    console.log('User email:', this.userEmail)
-    console.log('User password:', this.userPassword)
     this.login();
     this.closeModal();
   }
@@ -43,9 +41,7 @@ export class LoginModalComponent {
     }
 
     this.authService.login(loginRequest).subscribe((response) => {
-      console.log('Login successful', response.token);
-      console.log('Token in localStorage:', localStorage.getItem('token'));
-      if(this.authService.isLoggedIn()){
+      if (this.authService.isLoggedIn()) {
         ToasterService.showToast('success', randomWelcomeMessage)
         this.router.navigate(['/mood'])
       }

@@ -27,7 +27,7 @@ namespace moderlv2.Server.Controllers
 
             try
             {
-                var user = await _userService.RegisterAsync(model.Email, model.Password);
+                var user = await _userService.RegisterAsync(model.Email, model.Password, model.Username);
                 var token = _authService.GenerateJwtToken(user);
                 return Ok(new { Token = token });
             }

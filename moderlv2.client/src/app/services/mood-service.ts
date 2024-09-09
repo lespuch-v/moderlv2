@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError } from 'rxjs';
-import { JournalEntry } from '../models/JournalEntry';
+import { Observable } from 'rxjs';
+import { ChangeUsername, JournalEntry } from '../models/JournalEntry';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,6 @@ export class MoodServiceService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
-    console.log("Token being sent:", token);
     if (!token) {
       throw new Error("Token not found");
     }
@@ -67,4 +66,9 @@ export class MoodServiceService {
   getUserName(): Observable<any> {
     return this.httpWithAuth<string>('GET', `${this.apiUrl}/User/get-username`);
   }
+
+  updateUserName(userInfo: ChangeUsername): Observable<any> {
+    return this.httpWithAuth<{ updatedUserName: string }>('PUT', `${this.apiUrl}/User/change-username`, userInfo);
+  }
+
 }

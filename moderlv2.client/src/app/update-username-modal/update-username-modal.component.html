@@ -1,0 +1,24 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" *ngIf="isUpdateModalOpened">
+    <div class="modal-box w-96">
+        <div class="flex justify-end">
+            <button class="btn btn-circle bg-transparent" (click)="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <h2 class="text-2xl font-bold text-center mb-4">Enter new Username</h2>
+        <form (ngSubmit)="onUpdateUserName()">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Username</span>
+                </label>
+                <input type="email" [(ngModel)]="newUserName" name="email" class="input input-bordered" required />
+            </div>
+            <div class="form-control mt-6">
+                <button class="btn btn-primary w-full">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -24,3 +24,8 @@ export interface CreateJournalEntry {
   moodRating: Mood;
   description: string;
 }
+
+export interface ChangeUsername {
+  userId: string;
+  newUserName: string
+}

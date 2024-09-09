@@ -8,12 +8,12 @@
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-36 p-2 shadow">
         <li>
-          <a routerLink="/home"><img class="navigation-menu-images" [src]="homeImage"  alt="home"/>Home</a>
+          <a routerLink="/home"><img class="navigation-menu-images" [src]="homeImage" alt="home" />Home</a>
         </li>
         <li *ngIf="authService.isLoggedIn()">
           <a class="bg-yellow-100" routerLink="/mood">👼 Mood</a>
         </li>
-        <li  *ngIf="authService.isLoggedIn()">
+        <li *ngIf="authService.isLoggedIn()">
           <a routerLink="/stats"><img class="navigation-menu-images" [src]="analyticsImage" />Stats</a>
         </li>
         <li>
@@ -30,14 +30,18 @@
     <button *ngIf="authService.isLoggedIn()" class="btn btn-ghost btn-circle mr-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     </button>
-    <button *ngIf="!authService.isLoggedIn()" class="btn btn-accent mr-3" (click)="registrationModal.openRegistrationModel()" >Sign Up</button>
-    <button *ngIf="!authService.isLoggedIn()" class="btn btn-primary mr-4" (click)="loginModal.openModal()">Login</button>
+    <button *ngIf="!authService.isLoggedIn()" class="btn btn-accent mr-3"
+      (click)="registrationModal.openRegistrationModel()">Sign Up</button>
+    <button *ngIf="!authService.isLoggedIn()" class="btn btn-primary mr-4"
+      (click)="loginModal.openModal()">Login</button>
+    <button (click)="updateUserNameModal.openUpdateNameModal()" class="btn bg-yellow-100 m-3">{{ userName ? userName : 'Guest' }}</button>
     <button (click)="authService.logout()" *ngIf="authService.isLoggedIn()" class="btn btn-accent">Logout</button>
   </div>
 </div>
 
 <app-login-modal #loginModal></app-login-modal>
 <app-registration-modal #registrationModal></app-registration-modal>
+<app-update-username-modal (userNameUpdated)="onUserNameUpdated($event)" #updateUserNameModal></app-update-username-modal>

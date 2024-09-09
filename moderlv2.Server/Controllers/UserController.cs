@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using moderlv2.Server.Services;
 using moderlv2.Server.DTOs; // Add this directive
 using System.Security.Claims;
+using Microsoft.OpenApi.Writers;
 
 namespace moderlv2.Server.Controllers
 {
@@ -49,6 +50,23 @@ namespace moderlv2.Server.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        [HttpPut]
+        [Route("change-username")]
+        public async Task<IActionResult> ChangeUsername([FromBody] ChangeUsernameDto changeUsernameDto)
+        {
+            var user = await _userService.GetUserByIdAsync(changeUsernameDto.UserId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            user.UserName = changeUsernameDto.NewUserName;
+            await _userService.UpdateUserAsync(user);
+
+            // Return the updated username directly
+            return Ok(new { updatedUserName = user.UserName });
         }
     }
 }

@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
-import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '../models/auth.model';  // Updated import
+import { AuthResponse, LoginRequest, LoginResponse, RegisterRequest } from '../models/auth.model';
+import { ToasterService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,8 @@ export class AuthService {
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, loginRequest).pipe(
       tap((response: LoginResponse) => {
-        console.log('Login successful, storing token');
+        console.log('Login successful.');
         localStorage.setItem('token', response.token);
-        console.log('Token stored:', localStorage.getItem('token'));
       })
     );
   }
@@ -28,6 +28,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
+    ToasterService.showToast('info', 'You have been successfully logged off.')
   }
 
   isLoggedIn(): boolean {
@@ -53,14 +54,31 @@ export class AuthService {
     return false;
   }
 
-  registerUser(registerRequest: RegisterRequest): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.apiUrl}/register`, registerRequest)
+  registerUser(registerRequest: RegisterRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, registerRequest)
       .pipe(
         catchError((error) => {
           console.error('Registration failed', error);
           return throwError(error);
         })
       );
+  }
+
+  getUserId(): string | null {
+    debugger
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken.nameid;
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
+    } else {
+      console.error('Token not found');
+      return null;
+    }
   }
 
 }
