@@ -10,20 +10,6 @@
   justify-content: flex-start;
   align-items: center;
   max-width: 60rem;
-  transform: translateY(-100px);
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.card {
-  max-width: 300px;
-  margin: 10px;
 }
 
 .card-edits {
@@ -54,10 +40,7 @@
 .hero-container::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: rgba(255, 245, 228, 0.877) !important;
 }
 
@@ -66,40 +49,24 @@
   z-index: 2;
 }
 
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .welcome-header {
   font-family: "Playwrite CU", cursive;
   color: #ff6384;
 }
 
 .btn-one {
-  font-weight: 600;
-  font-size: 1.2rem;
   background-color: #FFDC7F;
 }
 
 .btn-two {
-  font-weight: 600;
-  font-size: 1.2rem;
   background-color: #bde2ff;
 }
 
 .btn-three {
-  font-weight: 600;
-  font-size: 1.2rem;
   background-color: #FF8A8A;
 }
 
 .btn-four {
-  font-weight: 600;
-  font-size: 1.2rem;
   background-color: #d5fcc5;
 }
 
@@ -110,11 +77,10 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 }
 
 .image-container {
-  /* background-color: lightblue; */
   margin: 20px;
 }
 
@@ -127,13 +93,6 @@
   margin: 20px;
 }
 
-@media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-  }
-}
-
-/* Removed duplicated .mooder-container class, updated positioning */
 .mood-text {
   text-shadow: 3px 3px 10px rgba(138, 138, 138, 0.5);
   font-family: "Nunito", sans-serif;
@@ -142,4 +101,26 @@
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
+}
+
+.mooder-image {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.coffee-image {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.ready-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
 }
