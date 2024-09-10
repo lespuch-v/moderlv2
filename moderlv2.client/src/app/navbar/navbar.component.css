@@ -7,3 +7,15 @@
   font-size: 1.3rem;
   margin: 10px;
 }
+
+.navbar-container {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-image: url('../../assets/background-images/stripes-light.webp');
+  border-bottom: 3px solid black;
+}
+
+.mooder-header-text {
+  font-family: "Playwrite CU", cursive;
+  font-size: 30px;
+  color: #ff6384;
+}

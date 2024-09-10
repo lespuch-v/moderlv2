@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, viewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
@@ -21,6 +21,16 @@ export class HomeComponent {
   infoVizImage: string = '../assets/images/info-visualization.png'
   coffeeImage: string = '../assets/images/coffe1.png'
 
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    const scrollPosition = window.pageYOffset;
+
+    const parallaxElement = document.getElementById('parallax');
+    if (parallaxElement) {
+      parallaxElement.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    }
+  }
+
   constructor(private router: Router, private authService: AuthService) { }
 
   handleJournalNow() {
@@ -38,5 +48,10 @@ export class HomeComponent {
 
   scrollToTop(): void {
     window.scrollTo(0, 0);
+  }
+
+  handleButtonClick() {
+    console.log('test');
+
   }
 }
