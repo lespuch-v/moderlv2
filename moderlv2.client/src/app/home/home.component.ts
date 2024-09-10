@@ -20,6 +20,7 @@ export class HomeComponent {
   marketingImage: string = '../assets/images/marketing-image.webp'
   infoVizImage: string = '../assets/images/info-visualization.png'
   coffeeImage: string = '../assets/images/coffe1.png'
+  logoMooder: string = '../assets/images/MOODER.png'
 
   @HostListener('window:scroll', [])
   onScroll(): void {
