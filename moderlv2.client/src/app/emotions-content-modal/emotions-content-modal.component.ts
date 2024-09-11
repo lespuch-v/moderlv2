@@ -16,14 +16,4 @@ export class EmotionsContentModalComponent {
   closeModal() {
     this.closeModalEvent.emit();
   }
-
-  closeModalWithEsc(event: KeyboardEvent): void {
-    console.log('test');
-
-    debugger
-    if (event.key === 'Escape') {
-      this.closeModal();
-    }
-  }
-
 }

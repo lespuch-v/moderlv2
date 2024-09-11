@@ -1,8 +1,12 @@
 <div class="modal modal-open" tabindex="0" *ngIf="isVisible">
-    <div class="modal-box relative">
-        <button (keydown)="closeModalWithEsc($event)" class="btn btn-sm btn-circle absolute right-2 top-2"
-            (click)="closeModal()">✕</button>
+  <div class="modal-box relative max-w-3xl p-6"> <!-- Add padding -->
+    <button class="m-3 btn btn-sm btn-circle absolute right-2 top-2" (click)="closeModal()">✕</button>
 
-        <ng-container *ngTemplateOutlet="modalContent"></ng-container>
+    <ng-container *ngTemplateOutlet="modalContent"></ng-container>
+
+    <!-- Flex container to space the close button -->
+    <div class="flex justify-end mt-4">
+      <button (click)="closeModal()" class="btn btn-primary">Close</button>
     </div>
+  </div>
 </div>
