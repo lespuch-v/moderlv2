@@ -1,12 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
-import { HomeComponent } from './home/home.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { MoodRecordComponent } from './mood-record/mood-record.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,17 +16,17 @@ import { StatJournalMoodForecastComponent } from './stat-journal-mood-forecast/s
 import { StatJournalWordCountComponent } from './stat-journal-word-count/stat-journal-word-count.component';
 import { StatsComponent } from './stats/stats.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
-    HomeComponent,
     StatsComponent,
     UserStatsComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, DarkModeToggleComponent, AppComponent, LoginModalComponent, MoodRecordComponent, StatJournalCounterComponent, StatJournalCurrentMoodComponent, NavbarComponent, RegistrationModalComponent, StatJournalMoodForecastComponent, StatJournalCurrentStreakComponent, StatJournalWordCountComponent
+    AppRoutingModule, DarkModeToggleComponent, AppComponent, LoginModalComponent, MoodRecordComponent, StatJournalCounterComponent, StatJournalCurrentMoodComponent, NavbarComponent, RegistrationModalComponent, StatJournalMoodForecastComponent, StatJournalCurrentStreakComponent, StatJournalWordCountComponent, FooterComponent
   ],
   providers: [],
   bootstrap: []

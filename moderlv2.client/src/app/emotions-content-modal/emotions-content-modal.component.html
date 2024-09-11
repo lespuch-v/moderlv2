@@ -1,0 +1,7 @@
+<div class="modal modal-open" *ngIf="isVisible">
+    <div class="modal-box relative">
+        <button class="btn btn-sm btn-circle absolute right-2 top-2" (click)="closeModal()">✕</button>
+
+        <ng-container *ngTemplateOutlet="modalContent"></ng-container>
+    </div>
+</div>

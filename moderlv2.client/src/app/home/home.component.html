@@ -8,13 +8,41 @@
             simple and intuitive way to track your feelings and gain insights over time.
         </p>
         <div>
-            <button (click)="handleButtonClick()" class="btn btn-primary btn-one m-3">Universal Emotions</button>
-            <button class="btn btn-secondary btn-two m-2">Exercise & Mood</button>
-            <button class="btn btn-secondary btn-three m-2">Negative Emotions</button>
-            <button class="btn btn-secondary btn-four m-2">Emotions & Memory</button>
+            {{isModalVisible}}
+            <button (click)="handleButtonClick('universal')" class="btn btn-primary btn-one m-3">Universal
+                Emotions</button>
+            <button (click)="handleButtonClick('exercise')" class="btn btn-secondary btn-two m-2">Exercise &
+                Mood</button>
+            <button (click)="handleButtonClick('negative')" class="btn btn-secondary btn-three m-2">Negative
+                Emotions</button>
+            <button (click)="handleButtonClick('memory')" class="btn btn-secondary btn-four m-2">Emotions &
+                Memory</button>
         </div>
-
     </div>
+
+    <ng-template #universalTemplate>
+        <h2>Universal Emotions</h2>
+        <!-- <img src="path_to_image_universal.jpg" alt="Universal Emotions"> -->
+        <p>Description about universal emotions...</p>
+    </ng-template>
+
+    <ng-template #exerciseTemplate>
+        <h2>Exercise & Mood</h2>
+        <!-- <img src="path_to_image_exercise.jpg" alt="Exercise & Mood"> -->
+        <p>Description about exercise & mood...</p>
+    </ng-template>
+
+    <ng-template #negativeTemplate>
+        <h2>Negative Emotions</h2>
+        <!-- <img src="path_to_image_negative.jpg" alt="Negative Emotions"> -->
+        <p>Description about negative emotions...</p>
+    </ng-template>
+
+    <ng-template #memoryTemplate>
+        <h2>Emotions & Memory</h2>
+        <!-- <img src="path_to_image_memory.jpg" alt="Emotions & Memory"> -->
+        <p>Description about emotions & memory...</p>
+    </ng-template>
 
     <div class="flex mt-2">
         <div class="bg-base-100 content-container">
@@ -171,3 +199,5 @@
 
 <app-footer></app-footer>
 <app-login-modal #LoginModal></app-login-modal>
+<app-emotions-content-modal (closeModalEvent)="handleModalClose()" [modalContent]="modalContent"
+    [isVisible]="isModalVisible"></app-emotions-content-modal>
