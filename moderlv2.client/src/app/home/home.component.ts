@@ -30,6 +30,7 @@ export class HomeComponent {
   @ViewChild('exerciseTemplate') exerciseTemplate!: TemplateRef<any>;
   @ViewChild('negativeTemplate') negativeTemplate!: TemplateRef<any>;
   @ViewChild('memoryTemplate') memoryTemplate!: TemplateRef<any>;
+  @ViewChild('trackingTemplate') trackingTemplate!: TemplateRef<any>;
 
   @HostListener('window:scroll', [])
   onScroll(): void {
@@ -64,17 +65,20 @@ export class HomeComponent {
     console.log(contentType);
 
     switch (contentType) {
-      case 'universal':
+      case 'cognition':
         this.modalContent = this.universalTemplate;
         break;
       case 'exercise':
         this.modalContent = this.exerciseTemplate;
         break;
-      case 'negative':
+      case 'music':
         this.modalContent = this.negativeTemplate;
         break;
       case 'memory':
         this.modalContent = this.memoryTemplate;
+        break;
+      case 'tracking':
+        this.modalContent = this.trackingTemplate;
         break;
     }
     this.isModalVisible = true;
