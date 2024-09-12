@@ -25,6 +25,7 @@ export class HomeComponent {
 
   isModalVisible: boolean = false;
   modalContent: TemplateRef<any> | null = null;
+  brainImage: string = '../assets/images/brainImage.png'
 
   @ViewChild('universalTemplate') universalTemplate!: TemplateRef<any>;
   @ViewChild('exerciseTemplate') exerciseTemplate!: TemplateRef<any>;

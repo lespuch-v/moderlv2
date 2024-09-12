@@ -17,3 +17,4 @@ export class EmotionsContentModalComponent {
     this.closeModalEvent.emit();
   }
 }
+

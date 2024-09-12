@@ -25,16 +25,19 @@
   </div>
 
   <ng-template #universalTemplate>
-    <h2 class="text-2xl m-2">Effect on Cognition</h2>
-    <!-- <img src="path_to_image_universal.jpg" alt="Universal Emotions"> -->
-    <p class="m-2">
+
+    <h2 class="text-2xl font-bold mb-4">Effect on Cognition</h2>
+    <div class="flex justify-center">
+      <img class="max-w-full h-auto rounded-lg" [src]="brainImage" alt="Universal Emotions">
+    </div>
+    <p class="leading-relaxed mb-6">
       Moods can have a profound impact on cognitive processing—the way we think, interpret, and respond to information.
       For example:
     </p>
-    <h3 class="text-3xl m-2">
+    <h3 class="text-2xl font-bold mb-4">
       Moods Influence How We Process Information
     </h3>
-    <ul class="m-2">
+    <ul class="list-disc list-inside space-y-2 mb-6">
       <li class="mb-2"><strong>Positive moods:</strong> When people are in a good mood, they tend to process information
         more
         holistically and creatively. They are more likely to think outside the box and make connections between
@@ -48,44 +51,44 @@
       </li>
     </ul>
 
-    <h2 class="text-2xl m-2">Mood Congruence in Memory</h2>
-    <p class="m-2">
+    <h2 class="text-2xl font-bold mb-4">Mood Congruence in Memory</h2>
+    <p class="leading-relaxed mb-6">
       Moods can also influence what we remember. This phenomenon is known as mood-congruent memory. When you're in a
       certain mood, you're more likely to recall memories that align with that mood. For example:
     </p>
-    <ul class="m-2">
-      <li class="mb-2">If you're in a positive mood, you’ll tend to remember more pleasant experiences or successes from
+    <ul class="list-disc list-inside space-y-2 mb-6">
+      <li class="mb-2">If you're in a <strong>positive mood</strong>, you’ll tend to remember more pleasant experiences or successes from
         your past. This reinforces your good mood, creating a kind of positive feedback loop.
       </li>
-      <li>In a negative mood, your brain may retrieve more negative or challenging experiences, which can perpetuate
+      <li>In a <strong>negative mood</strong>, your brain may retrieve more negative or challenging experiences, which can perpetuate
         feelings of sadness or frustration. This is why bad moods can sometimes feel like they linger—because they
         dredge up negative memories that reinforce the emotional state.
       </li>
     </ul>
 
-    <h2 class="text-2xl m-2">Mood and Learning</h2>
-    <p class="m-2">
+    <h2 class="text-2xl font-bold mb-4">Mood and Learning</h2>
+    <p class="leading-relaxed mb-6">
       Moods have a big influence on learning and retention of information. A good mood tends to:
     </p>
-    <ul class="m-2">
-      <li class="mb-2">Enhance motivation to learn and explore new ideas.</li>
-      <li>Promote flexibility in thinking, making it easier to absorb and retain new information.</li>
+    <ul class="list-disc list-inside space-y-2 mb-6">
+      <li class="mb-2"><strong>Enhance motivation</strong> to learn and explore new ideas.</li>
+      <li>Promote <strong>flexibility in thinking</strong>, making it easier to absorb and retain new information.</li>
     </ul>
-    <p class="m-2">
+    <p class="leading-relaxed mb-6">
       Conversely, being in a bad mood can create a sense of resistance toward learning, as it tends to narrow focus and
       limit the willingness to explore new concepts.
     </p>
 
-    <h2 class="text-2xl m-2">Mood and Problem-Solving</h2>
-    <p class="m-2">
+    <h2 class="text-2xl font-bold mb-4">Mood and Problem-Solving</h2>
+    <p class="leading-relaxed mb-6">
       There is a well-documented link between mood and problem-solving abilities:
     </p>
-    <ul class="m-2">
-      <li class="mb-2">Positive mood: People in a good mood are more likely to adopt a creative approach to
+    <ul class="list-disc list-inside space-y-2 mb-6">
+      <li class="mb-2"><strong>Positive mood:</strong> People in a good mood are more likely to adopt a creative approach to
         problem-solving. They see possibilities that others might overlook and are more willing to take unconventional
         routes.
       </li>
-      <li>Negative mood: When in a negative mood, people tend to approach problems in a systematic, linear way. While
+      <li><strong>Negative mood:</strong> When in a negative mood, people tend to approach problems in a systematic, linear way. While
         they might not be as creative, they can be more effective at following through with detailed steps and
         recognizing potential risks.
       </li>
@@ -93,27 +96,184 @@
   </ng-template>
 
   <ng-template #exerciseTemplate>
-    <h2 class="text-2xl">Exercise & Mood</h2>
-    <!-- <img src="path_to_image_exercise.jpg" alt="Exercise & Mood"> -->
-    <p>Description about exercise & mood...</p>
+        <h2 class="card-title text-2xl mb-4">Exercise & Mood</h2>
+        <p class="leading-relaxed mb-6">
+          Physical activity stimulates the release of endorphins, which are often called the body's "feel-good" chemicals.
+          Endorphins interact with receptors in the brain to reduce the perception of pain and induce feelings of euphoria.
+          This is commonly referred to as the "runner's high," but any form of sustained physical activity can have a
+          similar effect.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Exercise Reduces Stress and Anxiety</h3>
+        <p class="leading-relaxed mb-6">
+          Exercise lowers levels of the body's stress hormones, such as cortisol and adrenaline, while also increasing
+          production of serotonin and dopamine. This chemical shift can help alleviate feelings of anxiety and calm the
+          mind. In fact, even moderate activities like walking or yoga can significantly reduce stress levels and promote a
+          more balanced mood.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Improves Mood Through Better Sleep</h3>
+        <p class="leading-relaxed mb-6">
+          Regular exercise can improve sleep quality, which in turn positively affects mood. Better sleep supports cognitive
+          function, emotional regulation, and resilience to stress. Insufficient sleep, on the other hand, is often
+          associated with irritability, anxiety, and low mood.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Long-Term Mood Benefits from Exercise</h3>
+        <p class="leading-relaxed mb-6">
+          Engaging in regular physical activity doesn't just create short-term mood boosts; it also helps stabilize moods
+          over the long term. Studies show that people who exercise regularly are less likely to experience depression, and
+          exercise is often recommended as part of a treatment plan for those with mood disorders.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Exercise Boosts Self-Esteem and Body Image</h3>
+        <p class="leading-relaxed mb-6">
+          Physical activity, especially when it leads to fitness improvements or body composition changes, can improve
+          self-esteem and body image. Feeling stronger, healthier, or simply more capable can uplift mood and foster a sense
+          of accomplishment and confidence.
+        </p>
   </ng-template>
 
   <ng-template #negativeTemplate>
-    <h2 class="text-2xl">Music & Mood</h2>
-    <!-- <img src="path_to_image_negative.jpg" alt="Negative Emotions"> -->
-    <p>Description about negative emotions...</p>
+        <h2 class="card-title text-2xl mb-4">Music & Mood</h2>
+        <!-- Uncomment and update the image path if you have an image -->
+        <!--
+        <div class="flex justify-center mb-6">
+          <img src="path_to_image_negative.jpg" alt="Music & Mood" class="max-w-full h-auto rounded-lg">
+        </div>
+        -->
+        <p class="leading-relaxed mb-6">
+          Music has a powerful influence on mood, and its effects are widely studied across psychology and neuroscience.
+          Here's a deep dive into the relationship between music and mood:
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Music Can Directly Influence Emotions and Mood</h3>
+        <p class="leading-relaxed mb-6">
+          Listening to music activates various areas of the brain, especially those involved in emotions, such as the
+          amygdala and nucleus accumbens. These areas help to process emotional reactions to music, making it a potent tool
+          for altering mood. For instance, upbeat, fast-tempo music can boost energy and excitement, while slow, mellow
+          tunes can relax or even induce sadness.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Music Stimulates the Release of Dopamine</h3>
+        <p class="leading-relaxed mb-6">
+          When we listen to music we enjoy, it triggers the release of dopamine, the brain's "reward" chemical. Dopamine is
+          associated with pleasure, motivation, and mood regulation, which is why a favorite song can lift your spirits
+          instantly.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Music Therapy Helps Treat Mood Disorders</h3>
+        <p class="leading-relaxed mb-6">
+          Music therapy is an established therapeutic practice that uses music to help treat emotional and mental health
+          issues, including depression, anxiety, and PTSD. By tapping into emotions through melodies and rhythms, music
+          therapy allows patients to express emotions that are difficult to verbalize, helping them cope with stress and
+          improve their mood.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Tempo and Rhythm Affect Energy Levels</h3>
+        <p class="leading-relaxed mb-6">
+          Fast-tempo music (like dance or pop) often increases energy levels, helping to stimulate physical activity or
+          enhance motivation during exercise. Slow-tempo music (like classical or ambient) tends to have a calming effect,
+          reducing heart rate and relaxing the body, which can alleviate stress and anxiety.
+        </p>
   </ng-template>
 
+
   <ng-template #memoryTemplate>
-    <h2 class="text-2xl">Mood & Memory</h2>
-    <!-- <img src="path_to_image_memory.jpg" alt="Emotions & Memory"> -->
-    <p>Description about emotions & memory...</p>
+        <h2 class="card-title text-2xl mb-4">Mood & Memory</h2>
+        <!-- Uncomment and update the image path if you have an image -->
+        <!--
+        <div class="flex justify-center mb-6">
+          <img src="path_to_image_memory.jpg" alt="Emotions & Memory" class="max-w-full h-auto rounded-lg">
+        </div>
+        -->
+        <p class="leading-relaxed mb-6">
+          The relationship between memory and mood is fascinating because our emotional state has a strong influence on how
+          we encode, store, and retrieve memories. Here's a breakdown of how mood and memory are interconnected:
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Mood-Congruent Memory</h3>
+        <p class="leading-relaxed mb-4">
+          When you're in a particular mood, you're more likely to recall memories that match that mood. For instance:
+        </p>
+        <ul class="list-disc list-inside space-y-2 mb-6">
+          <li>
+            If you're feeling sad, you're more likely to remember sad events or times when you were disappointed.
+          </li>
+          <li>
+            Conversely, when you're in a positive mood, happy memories come to mind more easily.
+          </li>
+        </ul>
+        <p class="leading-relaxed mb-6">
+          This is known as mood-congruent memory, and it can create a feedback loop. If you're in a bad mood, recalling
+          negative memories may deepen that mood, while recalling positive memories during a good mood reinforces your
+          happiness.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Mood-Dependent Memory</h3>
+        <p class="leading-relaxed mb-6">
+          Memory retrieval is often more effective when the emotional state during recall matches the state during encoding.
+          This phenomenon is called mood-dependent memory.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Stress, Anxiety, and Memory Impairment</h3>
+        <p class="leading-relaxed mb-6">
+          Negative emotional states, like anxiety or stress, can impair memory formation and retrieval. High levels of
+          stress increase the production of cortisol, a hormone that negatively impacts the hippocampus, the brain region
+          crucial for memory processing. This can lead to difficulties in remembering details or focusing on tasks. In
+          contrast, moderate stress can sometimes enhance focus and short-term memory, but chronic stress tends to have
+          damaging effects.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-2">Positive Mood Enhances Creativity and Memory Flexibility</h3>
+        <p class="leading-relaxed mb-6">
+          When you're in a positive mood, your brain tends to be more flexible and open to new ideas, making it easier to
+          integrate and recall information in creative ways. Studies have shown that people in good moods are more likely to
+          think outside the box and connect unrelated concepts, which improves creative problem-solving and memory
+          retention.
+        </p>
   </ng-template>
 
   <ng-template #trackingTemplate>
-    <h2 class="text-2xl">Mood tracking & analysis</h2>
+    <h2 class="text-2xl m-2">Mood tracking & analysis</h2>
     <!-- <img src="path_to_image_memory.jpg" alt="Emotions & Memory"> -->
-    <p>Description about emotions & memory...</p>
+   <p class="m-2">
+     Mood tracking and analysis is a growing area of interest, particularly with the rise of mental health awareness and the use of technology to monitor well-being. Here's a breakdown of the key concepts that can help shape your article:
+   </p>
+    <h2 class="text-2xl m-2">
+      What is Mood Tracking?
+    </h2>
+    <p class="m-2">
+      Mood tracking involves consistently recording and monitoring your emotional state over time, often through journaling, mobile apps, or other self-monitoring tools. By collecting data on mood fluctuations, individuals can identify patterns and triggers that affect their emotional well-being.
+    </p>
+    <h3>Key Elements of Mood Tracking:</h3>
+    <ul class="list-disc list-inside p-4 space-y-2 text-base bg-base-100 rounded-lg">
+      <li><span class="font-semibold">Frequency:</span> How often mood is recorded (daily, multiple times a day).</li>
+      <li><span class="font-semibold">Factors:</span> What influences mood (e.g., sleep, diet, exercise, social interactions).</li>
+      <li><span class="font-semibold">Mood Intensity:</span> Rating the strength of emotions or mood on a scale (e.g., 1–10).</li>
+      <li><span class="font-semibold">Mood Descriptors:</span> Using specific words (happy, anxious, tired, stressed) to describe the current mood.</li>
+    </ul>
+
+    <h2 class="text-2xl m-2">
+      Why Track Moods?
+    </h2>
+    <p class="m-2">
+      The primary goal of mood tracking is to gain self-awareness and insight into how various factors affect emotional health. It helps individuals:
+    </p>
+    <ul>
+      <li>Recognize mood patterns over time (e.g., noticing mood dips on certain days or after particular events).</li>
+      <li>Identify external or internal triggers for emotional changes (e.g., stress from work, poor sleep, relationship conflicts).</li>
+      <li>Manage or predict mood swings, especially for individuals with mood disorders like depression, anxiety, or bipolar disorder.</li>
+    </ul>
+    <h2 class="text-2xl m-2">
+      The Science Behind Mood Tracking
+    </h2>
+    <p class="m-2">Mood tracking aligns with the principles of cognitive behavioral therapy (CBT) and mindfulness, both of which emphasize self-reflection and emotional regulation. By tracking mood data, individuals can become more aware of their emotional habits and develop healthier responses to challenging situations.</p>
+    <ul class="list-disc list-inside p-4 space-y-2 text-base bg-base-100 rounded-lg">
+      <li><span class="font-semibold">CBT Link:</span> Tracking moods helps break the automatic cycle of negative thoughts, allowing for healthier behavioral interventions.</li>
+      <li><span class="font-semibold">Mindfulness:</span> Keeping track of how you feel daily helps you stay grounded in the present moment and not be overwhelmed by your emotions.</li>
+    </ul>
+
   </ng-template>
 
   <div class="flex mt-2">
@@ -150,7 +310,8 @@
       <div class="text-container">
         <h1 class="text-lg font-semibold">Mood and Problem-Solving</h1>
         <p>
-          Positive moods boost creative problem-solving, while negative moods promote systematic thinking, detailed execution, and risk awareness.
+          Positive moods boost creative problem-solving, while negative moods promote systematic thinking, detailed
+          execution, and risk awareness.
         </p>
       </div>
     </div>
@@ -161,7 +322,8 @@
       <div class="text-container">
         <h1 class="text-lg font-semibold">Tracking Moods</h1>
         <p>
-          Tracking moods helps identify patterns and triggers, fostering self-awareness and improving emotional well-being over time.
+          Tracking moods helps identify patterns and triggers, fostering self-awareness and improving emotional
+          well-being over time.
         </p>
       </div>
     </div>
@@ -185,7 +347,8 @@
       <div class="text-container">
         <h1 class="text-lg font-semibold">Get insights about your mood.</h1>
         <p>
-          Track your emotions and gain insights with personalized reports, helping you understand mood patterns and improve well-being.
+          Track your emotions and gain insights with personalized reports, helping you understand mood patterns and
+          improve well-being.
         </p>
       </div>
     </div>
