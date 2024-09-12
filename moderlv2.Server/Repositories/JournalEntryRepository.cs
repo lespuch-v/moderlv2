@@ -59,5 +59,10 @@ namespace moderlv2.Server.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<int> GetTotalCountAsync()
+        {
+            return await _context.JournalEntries.CountAsync();
+        }
     }
 }

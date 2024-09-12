@@ -164,5 +164,22 @@ namespace moderlv2.Server.Controllers
             int journalEntryCount = await _journalService.JournalEntryCount(userId);
             return Ok(journalEntryCount);
         }
+
+        [AllowAnonymous]
+        [HttpGet("total-entries")]
+        public async Task<ActionResult<int>> GetTotalJournalEntries()
+        {
+            try
+            {
+                int totalEntries = await _journalService.GetTotalJournalEntriesAsync();
+                return Ok(new { totalEntries });
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetTotalJournalEntries: {ex}");
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 }

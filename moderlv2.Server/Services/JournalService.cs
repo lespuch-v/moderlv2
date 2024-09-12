@@ -75,5 +75,10 @@ namespace moderlv2.Server.Services
         {
             return await _JournalRepository.GetByIdAndUserIdAsync(id, userId);
         }
+
+        public async Task<int> GetTotalJournalEntriesAsync()
+        {
+            return await _JournalRepository.GetTotalCountAsync();
+        }
     }
 }

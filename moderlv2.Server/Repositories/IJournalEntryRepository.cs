@@ -11,5 +11,6 @@ namespace moderlv2.Server.Repositories
         Task DeleteAsync(int id);
         Task<IEnumerable<JournalEntry>> GetAllByUserIdAsync(string userId);
         Task<JournalEntry> GetByIdAndUserIdAsync(int id, string userId);
+        Task<int> GetTotalCountAsync();
     }
 }
