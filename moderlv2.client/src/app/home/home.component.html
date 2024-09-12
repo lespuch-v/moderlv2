@@ -356,72 +356,99 @@
 </div>
 
 <div class="flex flex-col hero min-h-screen justify-center" style="background-color: #DAEAF1;">
-  <div class="flex flex-col">
+  <div class="flex flex-col ">
     <div>
-      <h1 class="m-1 mx-2 text-6xl">What You'll Love</h1>
+      <h1 class="m-1 mx-2 text-6xl text-center">What You'll Love</h1>
     </div>
-    <main class="flex">
-      <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+    <main class="flex flex-wrap justify-center">
+      <!-- First Card -->
+      <div class="card bg-base-100 w-68 shadow-xl m-4 card-edits">
         <figure>
-          <img [src]="chartImage" alt="Shoes"/>
+          <img [src]="chartImage" alt="Personalized Journal"/>
         </figure>
         <div class="card-body">
           <h2 class="card-title">Personalized Journal</h2>
           <p>Keep a private log of your emotional journey and reflect whenever you need to.</p>
           <div class="card-actions justify-end">
-            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-              <path
-                d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
-                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <!-- SVG Icon -->
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+      <!-- Second Card -->
+      <div class="card bg-base-100 w-80 shadow-xl m-4 card-edits">
         <figure>
-          <img [src]="marketingImage" alt="personalized journal"/>
+          <img [src]="marketingImage" alt="Gain Insights"/>
         </figure>
         <div class="card-body">
           <h2 class="card-title">Gain Insights!</h2>
           <p>Visualize patterns to understand what influences your emotions.</p>
           <div class="card-actions justify-end">
-
-            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-              <path
-                d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
-                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <!-- SVG Icon -->
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-72 shadow-xl m-2 card-edits">
+      <!-- Third Card -->
+      <div class="card bg-base-100 w-80 shadow-xl m-4 card-edits">
         <figure>
-          <img [src]="infoVizImage" alt="Shoes"/>
+          <img [src]="infoVizImage" alt="Quick & Easy"/>
         </figure>
         <div class="card-body">
           <h2 class="card-title">Quick & Easy!</h2>
           <p>Recording your mood takes just a few seconds.</p>
           <div class="card-actions justify-end">
-            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#1C274C" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-              <path
-                d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
-                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <!-- SVG Icon -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Fourth Card -->
+      <div class="card bg-base-100 w-80 shadow-xl m-4 card-edits">
+        <figure>
+          <img [src]="secureImage" alt="Secure & Private"/>
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Secure & Private</h2>
+          <p>Your data is encrypted and stored securely.</p>
+          <div class="card-actions justify-end">
+            <!-- SVG Icon -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Fifth Card -->
+      <div class="card bg-base-100 w-80 shadow-xl m-4 card-edits">
+        <figure>
+          <img [src]="reminderImage" alt="Daily Reminders"/>
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Daily Reminders</h2>
+          <p>Set up notifications to regularly check in on your mood.</p>
+          <div class="card-actions justify-end">
+            <!-- SVG Icon -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sixth Card -->
+      <div class="card bg-base-100 w-80 shadow-xl m-4 card-edits">
+        <figure>
+          <img [src]="communityImage" alt="Community Support"/>
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Community Support</h2>
+          <p>Connect with others and share your journey.</p>
+          <div class="card-actions justify-end">
+            <!-- SVG Icon -->
           </div>
         </div>
       </div>
     </main>
-
   </div>
 </div>
+
+
 
 <div class="ready-container">
   <img class="m-7" class="coffee-image" [src]="coffeeImage" alt="coffee">

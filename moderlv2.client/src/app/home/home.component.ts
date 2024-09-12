@@ -32,6 +32,9 @@ export class HomeComponent {
   @ViewChild('negativeTemplate') negativeTemplate!: TemplateRef<any>;
   @ViewChild('memoryTemplate') memoryTemplate!: TemplateRef<any>;
   @ViewChild('trackingTemplate') trackingTemplate!: TemplateRef<any>;
+  communityImage: any;
+  reminderImage: any;
+  secureImage: any;
 
   @HostListener('window:scroll', [])
   onScroll(): void {
