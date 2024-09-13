@@ -99,6 +99,11 @@ namespace moderlv2.Server.Services
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<int> GetTotalNumberOfUsers()
+        {
+            return await _context.Users.CountAsync();
+        }
     }
 
 }

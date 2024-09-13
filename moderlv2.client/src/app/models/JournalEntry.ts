@@ -29,3 +29,11 @@ export interface ChangeUsername {
   userId: string;
   newUserName: string
 }
+
+export interface TotalEntriesResponse {
+  totalEntries: number;
+}
+
+export interface TotalNumberOfWordsResponse {
+  totalWords: number;
+}

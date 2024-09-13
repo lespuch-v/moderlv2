@@ -181,5 +181,21 @@ namespace moderlv2.Server.Controllers
                 return StatusCode(500, new { error = ex.Message });
             }
         }
+
+        [AllowAnonymous]
+        [HttpGet("total-number-words")]
+        public async Task<ActionResult<int>> GetTotalNumberOfWords()
+        {
+            try
+            {
+                int totalWords = await _journalService.GetTotalJournalWordsAsync();
+                return Ok(new { totalWords });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetTotalJournalEntries: {ex}");
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 }

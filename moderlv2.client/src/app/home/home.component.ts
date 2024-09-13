@@ -1,19 +1,21 @@
-import { Component, HostListener, TemplateRef, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { FooterComponent } from '../footer/footer.component';
 import { EmotionsContentModalComponent } from '../emotions-content-modal/emotions-content-modal.component';
+import { StatJournalGlobalCounterComponent } from "../stat-journal-global-counter/stat-journal-global-counter.component";
+import { MoodServiceService } from '../services/mood-service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [RouterLink, RegistrationModalComponent, LoginModalComponent, FooterComponent, EmotionsContentModalComponent]
+  imports: [RouterLink, RegistrationModalComponent, LoginModalComponent, FooterComponent, EmotionsContentModalComponent, StatJournalGlobalCounterComponent]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   @ViewChild('LoginModal') LoginModal!: LoginModalComponent;
 
@@ -21,7 +23,7 @@ export class HomeComponent {
   marketingImage: string = '../assets/images/marketing-image.webp';
   infoVizImage: string = '../assets/images/info-visualization.png';
   coffeeImage: string = '../assets/images/coffe1.png';
-  logoMooder: string = '../assets/images/MOODER.png';
+  logoMooder: string = '../assets/images/book-stack.png';
 
   isModalVisible: boolean = false;
   modalContent: TemplateRef<any> | null = null;
@@ -32,9 +34,13 @@ export class HomeComponent {
   @ViewChild('negativeTemplate') negativeTemplate!: TemplateRef<any>;
   @ViewChild('memoryTemplate') memoryTemplate!: TemplateRef<any>;
   @ViewChild('trackingTemplate') trackingTemplate!: TemplateRef<any>;
+
   communityImage: any;
   reminderImage: any;
   secureImage: any;
+  totalNumberOfEntries: number = 0;
+  totalNumberOfWords: number = 0;
+  totalNumberOfUsers: number = 0;
 
   @HostListener('window:scroll', [])
   onScroll(): void {
@@ -46,7 +52,14 @@ export class HomeComponent {
     }
   }
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private moodService: MoodServiceService) { }
+
+  ngOnInit(): void {
+    this.getTotalNumberOfEntries();
+    this.getTotalWords();
+    this.getTotalNumUsers();
+
+  }
 
   handleJournalNow() {
     if (this.authService.isLoggedIn()) {
@@ -90,5 +103,25 @@ export class HomeComponent {
 
   handleModalClose() {
     this.isModalVisible = false;
+  }
+
+  getTotalNumberOfEntries(): void {
+    this.moodService.getTotalNumberOfEntries().subscribe((result) => {
+      console.log(result);
+      this.totalNumberOfEntries = result.totalEntries;
+    })
+  }
+
+  getTotalWords(): void {
+    this.moodService.getTotalNumberOfWords().subscribe((result) => {
+      this.totalNumberOfWords = result.totalWords;
+    })
+  }
+
+  getTotalNumUsers(): void {
+    this.moodService.getTotalNumberOfUsers().subscribe((result) => {
+      this.totalNumberOfUsers = result;
+      console.log(this.totalNumberOfUsers);
+    })
   }
 }

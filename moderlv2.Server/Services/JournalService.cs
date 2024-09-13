@@ -80,5 +80,10 @@ namespace moderlv2.Server.Services
         {
             return await _JournalRepository.GetTotalCountAsync();
         }
+
+        public async Task<int> GetTotalJournalWordsAsync()
+        {
+            return await _JournalRepository.GetTotalJournalWordsAsync();
+        }
     }
 }

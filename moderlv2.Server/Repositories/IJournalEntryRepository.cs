@@ -12,5 +12,6 @@ namespace moderlv2.Server.Repositories
         Task<IEnumerable<JournalEntry>> GetAllByUserIdAsync(string userId);
         Task<JournalEntry> GetByIdAndUserIdAsync(int id, string userId);
         Task<int> GetTotalCountAsync();
+        Task<int> GetTotalJournalWordsAsync();
     }
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ChangeUsername, JournalEntry } from '../models/JournalEntry';
+import { ChangeUsername, JournalEntry, TotalEntriesResponse, TotalNumberOfWordsResponse } from '../models/JournalEntry';
 
 @Injectable({
   providedIn: 'root'
@@ -71,4 +71,15 @@ export class MoodServiceService {
     return this.httpWithAuth<{ updatedUserName: string }>('PUT', `${this.apiUrl}/User/change-username`, userInfo);
   }
 
+  getTotalNumberOfEntries(): Observable<TotalEntriesResponse> {
+    return this.http.get<TotalEntriesResponse>(`${this.apiUrl}/JournalEntry/total-entries`)
+  }
+
+  getTotalNumberOfWords(): Observable<TotalNumberOfWordsResponse> {
+    return this.http.get<TotalNumberOfWordsResponse>(`${this.apiUrl}/JournalEntry/total-number-words`)
+  }
+
+  getTotalNumberOfUsers(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/User/total-users`)
+  }
 }

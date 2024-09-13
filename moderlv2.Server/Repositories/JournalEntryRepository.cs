@@ -64,5 +64,14 @@ namespace moderlv2.Server.Repositories
         {
             return await _context.JournalEntries.CountAsync();
         }
+
+        public async Task<int> GetTotalJournalWordsAsync()
+        {
+            var descriptions = await _context.JournalEntries.Where(e => !string.IsNullOrEmpty(e.Description)).Select(e => e.Description).ToListAsync();
+
+            int totalWords = descriptions.Sum(description => description.Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).Length);
+
+            return totalWords;
+        }
     }
 }

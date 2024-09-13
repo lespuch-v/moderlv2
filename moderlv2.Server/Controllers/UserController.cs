@@ -68,5 +68,12 @@ namespace moderlv2.Server.Controllers
             // Return the updated username directly
             return Ok(new { updatedUserName = user.UserName });
         }
+
+        [HttpGet("total-users")]
+        [AllowAnonymous]
+        public async Task<ActionResult<int>> GetTotalNumberOfUsers()
+        {
+            return await _userService.GetTotalNumberOfUsers();
+        }
     }
 }

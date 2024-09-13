@@ -17,12 +17,14 @@ import { StatJournalWordCountComponent } from './stat-journal-word-count/stat-jo
 import { StatsComponent } from './stats/stats.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
 import { FooterComponent } from './footer/footer.component';
+import { StatJournalGlobalCounterComponent } from './stat-journal-global-counter/stat-journal-global-counter.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
     StatsComponent,
     UserStatsComponent,
+    StatJournalGlobalCounterComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
