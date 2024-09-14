@@ -63,62 +63,67 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
-      <div class="flex-grow"> <!-- Added this wrapper -->
-        <div class="flex-grow overflow-hidden mb-4">
-          <div *ngIf="editingEntryId !== data.id" class="overflow-y-auto mb-2">
-            <p class="text-lg">{{ data.description }}</p>
-          </div>
-          <div *ngIf="editingEntryId === data.id">
-            <textarea class="textarea textarea-primary w-full" id="journalEntryTextAreaEdit"
-              name="journalEntryTextAreaEdit" rows="3" [(ngModel)]="data.description"
-              [placeholder]="textAreaMessage"></textarea>
-          </div>
-        </div>
-        <div class="text-sm text-gray-600 mb-4">
-          {{ data.createdAt | date : "medium" }}
-        </div>
-      </div>
-      <div class="flex items-center justify-end text-6xl">
-        <ng-container *ngIf="editingEntryId !== data.id">
-          <div class="emoji-container">
-            <div class="emoji">
-              {{ getEmojiEnum(data.moodRating) }}
+      <main class="flex flex-col justify-center align-middle" style="width: 100%">
+        <div class="flex-grow"> <!-- Added this wrapper -->
+          <div class="flex-grow overflow-hidden">
+            <div *ngIf="editingEntryId !== data.id" class="overflow-y-auto mb-2">
+              <p class="text-lg">{{ data.description }}</p>
             </div>
-            <span class="stat-desc">{{ MoodEnum[data.moodRating] }}</span>
+            <div *ngIf="editingEntryId === data.id">
+            <textarea class="textarea textarea-primary w-full" id="journalEntryTextAreaEdit"
+                      name="journalEntryTextAreaEdit" rows="4" [(ngModel)]="data.description"
+                      [placeholder]="textAreaMessage"></textarea>
+            </div>
+            <div class="text-sm text-gray-600 mb-4">
+              {{ data.createdAt | date : "medium" }}
+            </div>
           </div>
 
-        </ng-container>
-        <ng-container *ngIf="editingEntryId === data.id">
-          <div class="flex flex-row" *ngFor="let mood of moodOptions">
-            <label class="btn btn-circle swap swap-rotate btn-sm" [ngClass]="
+        </div>
+        <div class="flex items-center text-6xl">
+          <ng-container *ngIf="editingEntryId !== data.id">
+            <div class="emoji-container">
+              <div class="emoji">
+                {{ getEmojiEnum(data.moodRating) }}
+              </div>
+              <span class="stat-desc">{{ MoodEnum[data.moodRating] }}</span>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="editingEntryId === data.id">
+            <div class="flex flex-row" *ngFor="let mood of moodOptions">
+              <label class="btn btn-circle swap swap-rotate btn-sm" [ngClass]="
             editingMood === MoodEnum[mood.key] ? 'selected-mood' : ''
           ">
-              <input type="checkbox" [checked]="editingMood === MoodEnum[mood.key]"
-                (change)="emojiSelectionEdit(mood.key)" />
-              <div class="swap-off fill-current text-2xl">
-                {{ mood.emoji }}
-              </div>
-              <div class="swap-on fill-current text-2xl">
-                {{ mood.swapEmoji }}
-              </div>
-            </label>
+                <input type="checkbox" [checked]="editingMood === MoodEnum[mood.key]"
+                       (change)="emojiSelectionEdit(mood.key)" />
+                <div class="swap-off fill-current text-2xl">
+                  {{ mood.emoji }}
+                </div>
+                <div class="swap-on fill-current text-2xl">
+                  {{ mood.swapEmoji }}
+                </div>
+              </label>
+            </div>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="editingEntryId === data.id">
+          <div class="flex m-3 flex-row justify-end space-x-2">
+            <button class="btn btn-outline btn-success btn-sm save-color" (click)="saveJournalEntry(data)">
+              Save
+            </button>
+            <button class="btn btn-outline btn-error btn-sm" (click)="cancelEdit()">
+              Cancel
+            </button>
           </div>
         </ng-container>
-      </div>
-      <div class="ml-4 flex items-center mt-14">
+      </main>
+
+
+      <div class="m-5">
         <button *ngIf="editingEntryId !== data.id" (click)="editJournalEntry(data.id)"
           class="btn btn-primary btn-sm edit-btn">
           Edit
         </button>
-
-        <ng-container *ngIf="editingEntryId === data.id">
-          <button class="btn btn-outline btn-success btn-sm mr-2 save-color" (click)="saveJournalEntry(data)">
-            Save
-          </button>
-          <button class="btn btn-outline btn-error btn-sm" (click)="cancelEdit()">
-            Cancel
-          </button>
-        </ng-container>
       </div>
     </div>
   </div>

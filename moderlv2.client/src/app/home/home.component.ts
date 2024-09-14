@@ -19,11 +19,11 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('LoginModal') LoginModal!: LoginModalComponent;
 
-  chartImage: string = '../assets/images/chart-image.webp';
-  marketingImage: string = '../assets/images/marketing-image.webp';
-  infoVizImage: string = '../assets/images/info-visualization.png';
-  coffeeImage: string = '../assets/images/coffe1.png';
-  logoMooder: string = '../assets/images/book-stack.png';
+  chartImage: string = '../assets/undraw/undraw_Charts_re_5qe9.png';
+  marketingImage: string = '../assets/undraw/undraw_Stock_prices_re_js33.png';
+  infoVizImage: string = '../assets/undraw/undraw_Setup_analytics_re_foim.png';
+  coffeeImage: string = '../assets/undraw/undraw_moonlight_5ksn.png';
+  logoMooder: string = '../assets/undraw/undraw_among_nature_p1xb.png';
 
   isModalVisible: boolean = false;
   modalContent: TemplateRef<any> | null = null;
@@ -35,9 +35,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('memoryTemplate') memoryTemplate!: TemplateRef<any>;
   @ViewChild('trackingTemplate') trackingTemplate!: TemplateRef<any>;
 
-  communityImage: any;
-  reminderImage: any;
-  secureImage: any;
+  communityImage: string = '../assets/undraw/undraw_Bibliophile_re_xarc.png';
+  reminderImage: string = '../assets/undraw/undraw_among_nature_p1xb.png';
+  secureImage: string = '../assets/undraw/undraw_Online_organizer_re_156n.png';
   totalNumberOfEntries: number = 0;
   totalNumberOfWords: number = 0;
   totalNumberOfUsers: number = 0;
@@ -107,7 +107,6 @@ export class HomeComponent implements OnInit {
 
   getTotalNumberOfEntries(): void {
     this.moodService.getTotalNumberOfEntries().subscribe((result) => {
-      console.log(result);
       this.totalNumberOfEntries = result.totalEntries;
     })
   }
@@ -121,7 +120,6 @@ export class HomeComponent implements OnInit {
   getTotalNumUsers(): void {
     this.moodService.getTotalNumberOfUsers().subscribe((result) => {
       this.totalNumberOfUsers = result;
-      console.log(this.totalNumberOfUsers);
     })
   }
 }

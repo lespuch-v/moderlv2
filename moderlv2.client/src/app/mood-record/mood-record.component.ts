@@ -8,7 +8,7 @@ import {
   MoodOption,
   getMoodName,
 } from './../models/mood.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { StatJournalCounterComponent } from '../stat-journal-counter/stat-journal-counter.component';
@@ -33,6 +33,7 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './mood-record.component.css'
 })
 export class MoodRecordComponent implements OnInit {
+
   MoodEnum = MoodEnum;
   MoodEmoji = MoodEmoji;
   textAreaMessage: string | undefined = '';
@@ -146,14 +147,13 @@ export class MoodRecordComponent implements OnInit {
     });
   }
 
-
   emojiSelection(mood: MoodKey): void {
     this.showMoodErrorMsg = false;
     this.selectedMood = this.selectedMood === getMoodValue(mood) ? undefined : getMoodValue(mood);
   }
 
   updateChartData(entries: JournalEntry[]) {
-    entries.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    // entries.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
     const moodRatings = entries.map(entry => this.moodMap[entry.moodRating as keyof typeof this.moodMap].value);
     const dates = entries.map(entry => new Date(entry.date).toLocaleDateString());

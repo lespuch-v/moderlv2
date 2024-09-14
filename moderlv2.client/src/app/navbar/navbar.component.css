@@ -10,8 +10,8 @@
 
 .navbar-container {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-image: url('../../assets/background-images/stripes-light.webp');
-  border-bottom: 3px solid black;
+  /*background-image: url('../../assets/background-images/stripes-light.webp');*/
+  /*border-bottom: 2px solid black;*/
 }
 
 .mooder-header-text {

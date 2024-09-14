@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<app-login-modal #loginModal></app-login-modal>
+<app-login-modal (loggedUser)="getUserName()" #loginModal></app-login-modal>
 <app-registration-modal #registrationModal></app-registration-modal>
 <app-update-username-modal (userNameUpdated)="onUserNameUpdated($event)"
   #updateUserNameModal></app-update-username-modal>
