@@ -65,7 +65,6 @@ export class AuthService {
   }
 
   getUserId(): string | null {
-    debugger
     const token = localStorage.getItem('token');
     if (token) {
       try {
