@@ -58,7 +58,7 @@
 }
 
 .main-inner-container.input-container-data .btn {
-  opacity: 0;
+  /*opacity: 0;*/
   transition: opacity 0.3s ease;
 }
 
@@ -110,8 +110,9 @@
 }
 
 .emoji-container {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  transform: translate(390px, -35px);
 }
 
 .stat-desc {

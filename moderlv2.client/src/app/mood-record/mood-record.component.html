@@ -63,7 +63,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
-      <main class="flex flex-col justify-center align-middle" [ngClass]="{'flex-col': isEditModeActive, 'flex-row': !isEditModeActive}" style="width: 100%">
+      <main class="flex flex-col justify-center align-middle"  style="width: 100%">
         <div class="flex-grow"> <!-- Added this wrapper -->
           <div class="flex-grow overflow-hidden">
             <div *ngIf="editingEntryId !== data.id" class="overflow-y-auto mb-2">
@@ -96,10 +96,10 @@
           ">
                 <input type="checkbox" [checked]="editingMood === MoodEnum[mood.key]"
                        (change)="emojiSelectionEdit(mood.key)" />
-                <div class="swap-off fill-current text-2xl">
+                <div class="swap-off fill-current text-3xl">
                   {{ mood.emoji }}
                 </div>
-                <div class="swap-on fill-current text-2xl">
+                <div class="swap-on fill-current text-3xl">
                   {{ mood.swapEmoji }}
                 </div>
               </label>

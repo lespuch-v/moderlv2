@@ -57,21 +57,40 @@
 .btn-one {
   background-color: #FFDC7F;
 }
+.btn-one:hover{
+  background-color: #cca94c;
+}
 
 .btn-two {
   background-color: #bde2ff;
+}
+
+.btn-two:hover {
+  background-color: #8aafcc;
 }
 
 .btn-three {
   background-color: #FF8A8A;
 }
 
+.btn-three:hover {
+  background-color: #cc5757;
+}
+
 .btn-four {
   background-color: #d5fcc5;
 }
 
+.btn-four:hover {
+  background-color: #a2c992
+}
+
 .btn-five {
   background-color: #E3CFFF;
+}
+
+.btn-five:hover {
+  background-color: #b09ccc;
 }
 
 .content-container {
