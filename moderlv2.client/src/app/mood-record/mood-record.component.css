@@ -103,10 +103,10 @@
 }
 
 .edit-btn {
-  margin-left: 8px;
-  margin-top: 10px;
   position: absolute;
-  transform: translate(-30px, -2px);
+  top: 74px;
+  right: 15px;
+  margin-top: 0;
 }
 
 .emoji-container {
