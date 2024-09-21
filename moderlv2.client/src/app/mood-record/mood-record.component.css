@@ -58,7 +58,7 @@
 }
 
 .main-inner-container.input-container-data .btn {
-  /*opacity: 0;*/
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
@@ -105,6 +105,8 @@
 .edit-btn {
   margin-left: 8px;
   margin-top: 10px;
+  position: absolute;
+  transform: translate(-30px, -2px);
 }
 
 .emoji-container {
