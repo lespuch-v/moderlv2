@@ -79,7 +79,6 @@ export class HomeComponent implements OnInit {
   }
 
   handleButtonClick(contentType: string) {
-    console.log(contentType);
 
     switch (contentType) {
       case 'cognition':

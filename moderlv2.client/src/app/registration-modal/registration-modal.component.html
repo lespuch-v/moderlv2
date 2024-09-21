@@ -26,13 +26,13 @@
         <label class="label">
           <span class="label-text">Password</span>
         </label>
-        <input type="password" [(ngModel)]="userPassword" name="password" class="input input-bordered" required />
+        <input type="password" [(ngModel)]="userPassword" name="password" autocomplete="password" class="input input-bordered" required />
       </div>
       <div class="form-control mt-4">
         <label class="label">
           <span class="label-text">Confirm Password</span>
         </label>
-        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" class="input input-bordered"
+        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" autocomplete="confirmPassword" class="input input-bordered"
           required />
       </div>
       <div class="form-control mt-6">

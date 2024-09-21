@@ -160,7 +160,6 @@ export class MoodRecordComponent implements OnInit {
 
     this.lineChartData.datasets[0].data = moodRatings;
     this.lineChartData.labels = dates;
-    console.log(this.showMoodErrorMsg)
 
     this.lineChartData = { ...this.lineChartData };
   }

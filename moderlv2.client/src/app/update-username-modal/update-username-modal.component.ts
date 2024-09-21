@@ -40,7 +40,6 @@ export class UpdateUsernameModalComponent {
         newUserName: this.newUserName,
         userId: userId
       }
-      console.log(this.newUserName);
       this.moodService.updateUserName(user).subscribe(result => {
         this.updateUserName()
       })
