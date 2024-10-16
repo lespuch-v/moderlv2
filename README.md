@@ -91,11 +91,13 @@ mood-recorder-app/
 ---
 
 ## Pictures
-![image](https://github.com/user-attachments/assets/af4e475b-a2ef-493e-9a77-11d8ab2f6fdc)
 
-![image](https://github.com/user-attachments/assets/510a976d-6383-4817-93e3-c01400d33665)
+![image](https://github.com/user-attachments/assets/20e59ba1-5a7b-4b86-aa35-28c6e388ef12)
 
-![image](https://github.com/user-attachments/assets/726009c1-50f4-44a2-92e6-71f4db9fe839)
+![image](https://github.com/user-attachments/assets/39faf113-cfb0-4f9f-9fe3-e46dd6234397)
+
+![image](https://github.com/user-attachments/assets/9ab1eefc-f1c9-4aa3-ad1d-07c982f51fa1)
+
 
 
 ## 🚧 Status
