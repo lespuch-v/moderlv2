@@ -1,4 +1,4 @@
-# Mood Recorder App 🎸🎤🎶
+# Mood Recorder App 💬📝📄
 
 This is a **work in progress** application that allows users to record their mood by selecting an emoji, adding text, and saving it. The project includes basic CRUD operations, login, and registration features, with a **front-end in Angular** and a **back-end in ASP.NET Core**.
 
