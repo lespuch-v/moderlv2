@@ -90,6 +90,14 @@ mood-recorder-app/
 
 ---
 
+## Pictures
+![image](https://github.com/user-attachments/assets/af4e475b-a2ef-493e-9a77-11d8ab2f6fdc)
+
+![image](https://github.com/user-attachments/assets/510a976d-6383-4817-93e3-c01400d33665)
+
+![image](https://github.com/user-attachments/assets/726009c1-50f4-44a2-92e6-71f4db9fe839)
+
+
 ## 🚧 Status
 
 This project is still in **active development**. Planned improvements include:
